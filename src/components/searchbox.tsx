@@ -21,7 +21,11 @@ export const SearchBox = () => {
                 variant="outlined"
                 fullWidth
                 type="number"
-                onChange={e => setSearchTerm(e.target.value)}
+                onChange={e => {
+                    if (/^0/.test(e.target.value)) e.target.value = e.target.value.replace(/^0/, "");
+                    setSearchTerm(e.target.value);
+                }}
+                onKeyDown={(e) => ["e", "E", "+", "-"].includes(e.key) && e.preventDefault()}
             />
         </div>
     )
