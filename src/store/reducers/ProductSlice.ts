@@ -5,13 +5,15 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface ProductsState {
     products: IProduct [],
     sorting: string | undefined,
-    filter: number | undefined
+    filter: number | undefined,
+    interacted:  boolean
 }
 
 const initialState: ProductsState = {
     products: data.products,
     sorting: undefined,
-    filter: undefined
+    filter: undefined,
+    interacted: false
 }
 
 export const productsSlice = createSlice({
@@ -20,6 +22,9 @@ export const productsSlice = createSlice({
     reducers: {
         setFilter(state, action: PayloadAction<string | number>){
             state.filter = Number(action.payload);
+        },
+        setInteracted(state){
+            state.interacted = true;
         }
     }
 })
