@@ -23,6 +23,9 @@ export const productsSlice = createSlice({
         setFilter(state, action: PayloadAction<string | number>){
             state.filter = Number(action.payload);
         },
+        setSorting(state, action: PayloadAction<string>){
+            state.sorting = action.payload;
+        },
         setInteracted(state){
             state.interacted = true;
         }

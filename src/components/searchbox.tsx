@@ -13,7 +13,7 @@ export const SearchBox = () => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        const url =  new URL(window.location.origin);
+        const url = new URL(window.location.href);
 
         if (debouncedTerm) {
             url.searchParams.set('filter',  debouncedTerm);
