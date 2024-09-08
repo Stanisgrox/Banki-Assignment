@@ -5,6 +5,16 @@ import { SortInput } from './components/sorting';
 import { useAppDispatch } from './hooks/redux';
 import { productsSlice } from './store/reducers/ProductSlice';
 
+/*
+  Главная страница App.
+
+  Тут помимо общей раскладки приложения выполняется считывание параметров из ссылки, если вдруг пользователь перешел по ней.
+  sorting - вид сортировки (ASC/DESC)
+  filter - минимальная сумма для поиска
+
+  Если эти значения присутствуют в ссылке, они отправляются в Reducer.
+*/
+
 function App() {
 
   const {setFilter, setSorting} = productsSlice.actions;

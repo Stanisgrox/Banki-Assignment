@@ -1,6 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import productReducer from "./reducers/ProductSlice"
 
+/*
+    Инициализация хранилища: корневой редусер, стор и экспорт типов для TS.
+*/
+
 const rootReducer = combineReducers({
     productReducer
 });

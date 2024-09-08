@@ -3,6 +3,13 @@ import { useAppSelector, useAppDispatch } from "../hooks/redux";
 import { productsSlice } from "../store/reducers/ProductSlice";
 import { useEffect } from "react";
 
+/*
+  Селектор сортировки.
+
+  Если в ссылке был передан параметр sort (пользователь перешел по уже запрошенному результату), то useEffect присваивает это значение инпуту, чтобы отобразить это в интерфейсе.
+  При изменении инпута он записывает новое значение в редусер и URL страницы.
+*/
+
 export const SortInput = () => {
 
     const {setInteracted, setSorting} = productsSlice.actions;

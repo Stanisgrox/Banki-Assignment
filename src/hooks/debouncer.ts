@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-//Хук для отложенного обновления результатов поиска чтобы лимитировать запросы
+//Хук для отложенного обновления результатов поиска чтобы лимитировать запросы value - то что будет меняться, delay - с какой задержкой
 
 export default function useDebounce<T>(value: T, delay: number) {
 

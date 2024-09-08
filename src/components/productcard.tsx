@@ -1,5 +1,11 @@
 import { IProduct } from "../types/mockTypes"
 
+/*
+    Карточка продукта, в ней отсутсвует логика, только верстка по макету и вставление пропсов.
+
+    Для CEO Оптимизации я сразу вставил название банка в IMG логотипа
+*/
+
 export const ProductCard = (props: IProduct) => {
     return (
         <div className="bg-white rounded-xl shadow-md p-4 mb-3">

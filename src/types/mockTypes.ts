@@ -1,3 +1,7 @@
+/*
+    Типы из mock файла для "ответа API"
+*/
+
 export interface IMock {
     filter: number | null,
     products: IProduct []

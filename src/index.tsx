@@ -4,6 +4,8 @@ import App from './App';
 import { setupStore } from './store/store';
 import { Provider } from 'react-redux';
 
+//Базовый сетап Create React App и Store провайдер для Redux Toolkit
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );

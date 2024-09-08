@@ -4,6 +4,20 @@ import useDebounce from "../hooks/debouncer";
 import { productsSlice } from "../store/reducers/ProductSlice";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
 
+/*
+    Строка поиска
+
+    Тут используется кастомный хук - useDebouncer, чтобы отложить изменения состояния и URL, тем самым предотвратить спам истории браузера, гипотетического API и интерфейса. 
+
+    Логика работы схожа с sorting.tsx.
+
+    useEffect читает ссылку, если там есть значение, а Interacted = false, то он присваивает инпуту значение из ссылкию помимо этого useEffect отвечает за вызов useDebouncer.
+
+    В onChange и onKeyDown компонента TextField происходят следующие проверки (описаны в порядке строчек):
+        -Удаляется первый ноль в числе (0123 превращается в 123) при помощи RegEx
+        -Запрещается ввод знаков е, Е, + и -, так как они не запрещены в базовом HTML Number Input. Кредитные продукты не имеют отрицательных чисел, так же как и использование числа e не имеет смысла.
+*/
+
 export const SearchBox = () => {
 
     const [searchTerm, setSearchTerm] = useState('');

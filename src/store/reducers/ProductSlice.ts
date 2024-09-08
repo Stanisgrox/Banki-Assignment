@@ -2,6 +2,15 @@ import { IProduct } from "../../types/mockTypes"
 import data from "../../data/mock.json";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+/*
+    Состояния программы
+    products - продукты, полученные из mock
+    sorting - вид сортировки asc/desc или никакая (undefined)
+    interacted - сейфгард, чтобы поля не перезаписывали ссылку из состояния при запуске
+
+    Три функции редусера для установки фильтра, сортировки и интеракции
+*/
+
 interface ProductsState {
     products: IProduct [],
     sorting: string | undefined,
