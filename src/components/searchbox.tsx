@@ -1,5 +1,5 @@
 import { TextField } from "@mui/material"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import useDebounce from "../hooks/debouncer";
 import { productsSlice } from "../store/reducers/ProductSlice";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
@@ -11,9 +11,11 @@ export const SearchBox = () => {
     const {setFilter, setInteracted} = productsSlice.actions;
     const {interacted} = useAppSelector(state => state.productReducer);
     const dispatch = useAppDispatch();
+    const field = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
         const url = new URL(window.location.href);
+        const args = new URLSearchParams(url.search);
 
         if (debouncedTerm) {
             url.searchParams.set('filter',  debouncedTerm);
@@ -24,7 +26,13 @@ export const SearchBox = () => {
             dispatch(setFilter(''));
         }
 
-        if (interacted) window.history.pushState({}, '', url);
+        if (interacted) window.history.pushState({}, '', url)
+        else {
+            if (args.get('filter')) {
+                const input = field.current as HTMLInputElement;
+                input.value = args.get('filter') as string;
+            }
+        }
 
     }, [debouncedTerm, dispatch, setFilter, interacted]);
 
@@ -42,6 +50,7 @@ export const SearchBox = () => {
                     setSearchTerm(e.target.value);
                 }}
                 onKeyDown = {(e) => ["e", "E", "+", "-"].includes(e.key) && e.preventDefault()}
+                inputRef = {field}
             />
         </div>
     )

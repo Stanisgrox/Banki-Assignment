@@ -7,7 +7,7 @@ import { productsSlice } from './store/reducers/ProductSlice';
 
 function App() {
 
-  const {setFilter} = productsSlice.actions;
+  const {setFilter, setSorting} = productsSlice.actions;
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -18,6 +18,7 @@ function App() {
       const filter = urlParams.get('filter');
 
       if (filter) dispatch(setFilter(filter));
+      if (sorting) dispatch(setSorting(sorting));
     }
 
   })
