@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { ProductCard } from './components/productcard';
+import { SearchBox } from './components/searchbox';
+import { SortInput } from './components/sorting';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='max-w-4xl mr-auto ml-auto pl-2 pr-2'>
+        <SearchBox />
+        <SortInput />
+        <ProductCard 
+          amount = {1000}
+          name = 'Т-Банк'
+          logo = "//static3.banki.ru/ugc/d4/e8/54/40/195706.png"
+        />
+      </div>
     </div>
   );
 }
