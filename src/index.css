@@ -23,7 +23,7 @@ body {
 }
 
 .product-list .product-card {
-  transition: .5s;
+  transition: .4s;
 }
 
 .product-card:hover {
