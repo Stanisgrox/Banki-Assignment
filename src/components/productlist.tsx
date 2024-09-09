@@ -29,7 +29,7 @@ export const ProductList = () => {
     let sortedProducts = sorting? [...filteredProducts].sort((a, b) => a.amount < b.amount ? sorting === 'desc'? 1 : -1 : sorting === 'desc'? -1 : 1) : filteredProducts;
 
     return (
-        <div>
+        <div className="product-list">
             {sortedProducts.map((product) => 
                 <ProductCard 
                     amount = {product.amount} 

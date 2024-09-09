@@ -8,7 +8,7 @@ import { IProduct } from "../types/mockTypes"
 
 export const ProductCard = (props: IProduct) => {
     return (
-        <div className="bg-white rounded-xl shadow-md p-4 mb-3">
+        <div className="bg-white rounded-xl shadow-md p-4 mb-3 product-card">
             <div className="flex justify-start">
                 <div className="mr-3">
                     <img 
