@@ -59,7 +59,7 @@ export const SearchBox = () => {
                 fullWidth
                 type = "number"
                 onChange = {e => {
-                    dispatch(setInteracted());
+                    if (!interacted) dispatch(setInteracted());
                     if (/^0/.test(e.target.value)) e.target.value = e.target.value.replace(/^0/, "");
                     setSearchTerm(e.target.value);
                 }}

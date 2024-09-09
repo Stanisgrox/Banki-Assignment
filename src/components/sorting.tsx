@@ -38,7 +38,7 @@ export const SortInput = () => {
                   onChange = {
                     (e) => {
                       dispatch(setSorting(e.target.value))
-                      dispatch(setInteracted());
+                      if (!interacted) dispatch(setInteracted());
                     }
                   }
                 >
